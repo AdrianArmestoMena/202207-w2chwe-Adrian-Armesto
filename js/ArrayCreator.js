@@ -1,18 +1,23 @@
-const ArrayCreator = (celulesHabitatsRows, celulesHabitatsColums) => {
+const HabitatArrayGenerator = (celulesHabitatsRows, celulesHabitatsColums) => {
   const celulesHabitats = [];
   celulesHabitats.push([]);
-  let rowsPushCounter = 0;
+  let rowsPushCounter = 1;
   let columsPushCounter = 0;
 
   do {
     celulesHabitats.push([]);
-    RowsPushCounter++;
-  } while (celulesHabitatsRows === rowsPushCounter);
+    rowsPushCounter++;
+  } while (celulesHabitatsRows !== rowsPushCounter);
 
   celulesHabitats.forEach((row) => {
     do {
       row.push(1);
-    } while (celulesHabitatsColums === columsPushCounter);
+      columsPushCounter++;
+    } while (celulesHabitatsColums !== columsPushCounter);
+    columsPushCounter = 0;
   });
+
+  return celulesHabitats;
 };
-export default ArrayCreator;
+const Habitat = HabitatArrayGenerator(32, 41);
+console.log(Habitat);
