@@ -21,3 +21,4 @@ const HabitatArrayGenerator = (celulesHabitatsRows, celulesHabitatsColums) => {
 };
 const Habitat = HabitatArrayGenerator(32, 41);
 console.log(Habitat);
+module.exports = HabitatArrayGenerator;
