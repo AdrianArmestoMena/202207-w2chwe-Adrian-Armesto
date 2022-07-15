@@ -26,4 +26,18 @@ describe("Given the function HabitatArrayGenerator", () => {
       expect(receivedResult).toEqual(expectedResult);
     });
   });
+  describe("When it's called and it recieves 'string1' and 'string2'", () => {
+    test("Then function should return 'Parameters must be a number betwen o and 100'", () => {
+      const numberOfRows = "string1";
+      const numberOfColums = "string2";
+      const expectedResult = "Parameters must be a number betwen o and 100";
+
+      const receivedResult = HabitatArrayGenerator(
+        numberOfRows,
+        numberOfColums
+      );
+
+      expect(receivedResult).toEqual(expectedResult);
+    });
+  });
 });
