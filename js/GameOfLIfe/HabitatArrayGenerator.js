@@ -3,7 +3,16 @@ const HabitatArrayGenerator = (celulesHabitatsRows, celulesHabitatsColums) => {
   celulesHabitats.push([]);
   let rowsPushCounter = 1;
   let columsPushCounter = 0;
+  let ErrorMessage = "Parameters must be a number betwen o and 100";
 
+  if (
+    !Number.isInteger(celulesHabitatsColums) ||
+    !Number.isInteger(celulesHabitatsRows) ||
+    (celulesHabitatsColums || celulesHabitatsRows) > 100 ||
+    (celulesHabitatsColums || celulesHabitatsRows) === 0
+  ) {
+    return ErrorMessage;
+  }
   do {
     celulesHabitats.push([]);
     rowsPushCounter++;
