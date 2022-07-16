@@ -1,7 +1,6 @@
 const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
   const cellsHabitats = [];
-  cellsHabitats.push([]);
-  let rowsPushCounter = 1;
+  let rowsPushCounter = 0;
   let columsPushCounter = 0;
   let ErrorMessage = "Parameters must be a number betwen o and 100";
 
