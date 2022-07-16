@@ -1,32 +1,32 @@
-const HabitatArrayGenerator = (celulesHabitatsRows, celulesHabitatsColums) => {
-  const celulesHabitats = [];
-  celulesHabitats.push([]);
+const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
+  const cellsHabitats = [];
+  cellsHabitats.push([]);
   let rowsPushCounter = 1;
   let columsPushCounter = 0;
   let ErrorMessage = "Parameters must be a number betwen o and 100";
 
   if (
-    !Number.isInteger(celulesHabitatsColums) ||
-    !Number.isInteger(celulesHabitatsRows) ||
-    (celulesHabitatsColums || celulesHabitatsRows) > 100 ||
-    (celulesHabitatsColums || celulesHabitatsRows) === 0
+    !Number.isInteger(cellsHabitatsColums) ||
+    !Number.isInteger(cellsHabitatsRows) ||
+    (cellsHabitatsColums || cellsHabitatsRows) > 100 ||
+    (cellsHabitatsColums || cellsHabitatsRows) === 0
   ) {
     return ErrorMessage;
   }
   do {
-    celulesHabitats.push([]);
+    cellsHabitats.push([]);
     rowsPushCounter++;
-  } while (celulesHabitatsRows !== rowsPushCounter);
+  } while (cellsHabitatsRows !== rowsPushCounter);
 
-  celulesHabitats.forEach((row) => {
+  cellsHabitats.forEach((row) => {
     do {
       row.push(1);
       columsPushCounter++;
-    } while (celulesHabitatsColums !== columsPushCounter);
+    } while (cellsHabitatsColums !== columsPushCounter);
     columsPushCounter = 0;
   });
 
-  return celulesHabitats;
+  return cellsHabitats;
 };
 const Habitat = HabitatArrayGenerator(32, 41);
 console.log(Habitat);
