@@ -2,7 +2,7 @@ const GenerateLivedCells = require("./GenerateLivedCells");
 
 describe("Given the function GenerateLivedCells", () => {
   describe("When it's called and it recieves an array", () => {
-    test("Then function should return an array with a 0 in the position 0 1, 1 2,2 0,2 1,2 2", () => {
+    test("Then function should return an array with a 0 in the positions 0 1, 1 2,2 0,2 1,2 2", () => {
       const receivedArray = [
         [1, 1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1, 1],
