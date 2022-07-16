@@ -1,4 +1,4 @@
-const GenerateLivedCelules = (habitat) => {
+const GenerateLivedCells = (habitat) => {
   habitat[0][1] = 0;
   habitat[1][2] = 0;
   habitat[2][0] = 0;
@@ -7,4 +7,4 @@ const GenerateLivedCelules = (habitat) => {
   return habitat;
 };
 
-module.exports = GenerateLivedCelules;
+module.exports = GenerateLivedCells;
