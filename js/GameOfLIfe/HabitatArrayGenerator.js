@@ -28,4 +28,4 @@ const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
   return cellsHabitats;
 };
 
-module.exports = HabitatArrayGenerator;
+export default HabitatArrayGenerator;

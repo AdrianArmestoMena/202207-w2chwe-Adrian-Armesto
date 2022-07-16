@@ -7,4 +7,4 @@ const GenerateLivedCells = (habitat) => {
   return habitat;
 };
 
-module.exports = GenerateLivedCells;
+export default GenerateLivedCells;
