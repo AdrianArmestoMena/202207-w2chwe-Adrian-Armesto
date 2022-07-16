@@ -27,6 +27,5 @@ const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
 
   return cellsHabitats;
 };
-const Habitat = HabitatArrayGenerator(32, 41);
-console.log(Habitat);
+
 module.exports = HabitatArrayGenerator;

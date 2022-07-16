@@ -1,4 +1,4 @@
-const neightbourChecker = (row, column, habitat, NumberOfRows) => {
+const neightbourChecker = (row, column, habitat) => {
   let initialPositionRow = row - 1;
   const initialPositionColumn = column - 1;
   let rowCheckCounter = 0;
@@ -9,17 +9,17 @@ const neightbourChecker = (row, column, habitat, NumberOfRows) => {
     initialPositionRow = row;
     numbersOfRowsToCheck = 2;
   }
-
-  if (row + 1 === habitat.length) {
+  debugger;
+  if (row === habitat.length - 1) {
     numbersOfRowsToCheck = 2;
+    debugger;
   }
-
+  debugger;
   do {
     livedNeightbours += neighboursRowsChecker(
       initialPositionRow,
       initialPositionColumn,
-      habitat,
-      NumberOfRows
+      habitat
     );
 
     initialPositionRow += 1;
@@ -51,3 +51,5 @@ const neighboursRowsChecker = (row, column, habitat) => {
 
   return aliveNeightBour;
 };
+
+export { neighboursRowsChecker, neightbourChecker };
