@@ -3,10 +3,19 @@ const neightbourChecker = (row, column, habitat, NumberOfRows) => {
   const initialPositionColumn = column - 1;
   let rowCheckCounter = 0;
   let livedNeightbours = 0;
+  let numbersOfRowsToCheck = 3;
+
+  if (row === 0) {
+    initialPositionRow = row;
+    numbersOfRowsToCheck = 2;
+  }
+
+  if (row + 1 === habitat.length) {
+    numbersOfRowsToCheck = 2;
+  }
 
   do {
-    debugger;
-    livedNeightbours += upperRowCellsNeighbours(
+    livedNeightbours += neighboursRowsChecker(
       initialPositionRow,
       initialPositionColumn,
       habitat,
@@ -15,17 +24,21 @@ const neightbourChecker = (row, column, habitat, NumberOfRows) => {
 
     initialPositionRow += 1;
     rowCheckCounter += 1;
-    debugger;
-  } while (rowCheckCounter !== 3);
+  } while (rowCheckCounter !== numbersOfRowsToCheck);
+
+  if (habitat[row][column] === 0) {
+    return livedNeightbours - 1;
+  }
+
   return livedNeightbours;
 };
 
-const upperRowCellsNeighbours = (row, column, habitat) => {
+const neighboursRowsChecker = (row, column, habitat) => {
   let columnTested = column;
   let cellToTest = habitat[row][columnTested];
   let aliveNeightBour = 0;
   let testCounter = 0;
-  debugger;
+
   do {
     cellToTest = habitat[row][columnTested];
     if (cellToTest === 0) {
@@ -34,24 +47,7 @@ const upperRowCellsNeighbours = (row, column, habitat) => {
 
     testCounter += 1;
     columnTested += 1;
-    debugger;
   } while (testCounter !== 3);
 
-  debugger;
   return aliveNeightBour;
 };
-
-const expectedResult = [
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 1, 1],
-  [1, 14, 1, 0, 1, 1],
-  [1, 19, 14, 0, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-];
-
-neightbourChecker(3, 2, expectedResult);
