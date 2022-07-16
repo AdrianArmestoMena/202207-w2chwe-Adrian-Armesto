@@ -1,4 +1,4 @@
-const GenerateLivedCells = require("./GenerateLivedCells");
+import GenerateLivedCells from "./GenerateLivedCells";
 
 describe("Given the function GenerateLivedCells", () => {
   describe("When it's called and it recieves an array", () => {

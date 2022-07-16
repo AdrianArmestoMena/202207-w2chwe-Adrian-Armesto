@@ -1,4 +1,4 @@
-const HabitatArrayGenerator = require("./HabitatArrayGenerator");
+import HabitatArrayGenerator from "./HabitatArrayGenerator";
 
 describe("Given the function HabitatArrayGenerator", () => {
   describe("When it's called and it recieves 10 and 6", () => {
