@@ -9,12 +9,11 @@ const neightbourChecker = (row, column, habitat) => {
     initialPositionRow = row;
     numbersOfRowsToCheck = 2;
   }
-  debugger;
+
   if (row === habitat.length - 1) {
     numbersOfRowsToCheck = 2;
-    debugger;
   }
-  debugger;
+
   do {
     livedNeightbours += neighboursRowsChecker(
       initialPositionRow,

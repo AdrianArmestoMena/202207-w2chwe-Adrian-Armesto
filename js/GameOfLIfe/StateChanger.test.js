@@ -28,8 +28,8 @@ describe("Given the function stateChanger", () => {
     });
     test("Then function should return 1 or 0 depends on the number of alive neightbours", () => {
       const cellState = 1;
-      const aliveNeighbours = 3;
-      const expectedResult = 0;
+      const aliveNeighbours = 2;
+      const expectedResult = 1;
       const receivedResult = stateChanger(cellState, aliveNeighbours);
 
       expect(receivedResult).toEqual(expectedResult);
