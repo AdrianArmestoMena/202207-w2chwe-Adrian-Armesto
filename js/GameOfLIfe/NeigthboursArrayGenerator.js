@@ -1,44 +1,53 @@
-const neightboursArrayGenerator = (habitat, row, column) => {
-  const Left = habitat[row][column - 1];
-  const LeftUp = habitat[row - 1][column - 1];
-  const Up = habitat[row - 1][column];
-  const UpRight = habitat[row - 1][column + 1];
-  const Right = habitat[row][column + 1];
-  const RightDown = habitat[row + 1][column + 1];
-  const Down = habitat[row + 1][column];
-  const DownLeft = habitat[row + 1][column - 1];
-  const neightbours = [];
-
-  neightbours.push(Left, LeftUp, Up, UpRight, Right, RightDown, Down, DownLeft);
+const neightbourChecker = (row, column, habitat, NumberOfRows) => {
+  let initialPositionRow = row - 1;
+  const initialPositionColumn = column - 1;
+  let rowCheckCounter = 0;
+  let livedNeightbours = 0;
+  let numbersOfRowsToCheck = 3;
 
   if (row === 0) {
-    neightbours.push(Left, Right, RightDown, Down, DownLeft);
+    initialPositionRow = row;
+    numbersOfRowsToCheck = 2;
   }
-  if (row >= habitat.lenght - 1)
-    neightbours.push(
-      Left,
-      LeftUp,
-      Up,
-      UpRight,
-      Right,
-      RightDown,
-      Down,
-      DownLeft
+
+  if (row + 1 === habitat.length) {
+    numbersOfRowsToCheck = 2;
+  }
+
+  do {
+    livedNeightbours += neighboursRowsChecker(
+      initialPositionRow,
+      initialPositionColumn,
+      habitat,
+      NumberOfRows
     );
-  return neightbours;
+
+    initialPositionRow += 1;
+    rowCheckCounter += 1;
+  } while (rowCheckCounter !== numbersOfRowsToCheck);
+
+  if (habitat[row][column] === 0) {
+    return livedNeightbours - 1;
+  }
+
+  return livedNeightbours;
 };
 
-const expectedResult = [
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1],
-];
+const neighboursRowsChecker = (row, column, habitat) => {
+  let columnTested = column;
+  let cellToTest = habitat[row][columnTested];
+  let aliveNeightBour = 0;
+  let testCounter = 0;
 
-console.log(neightboursArrayGenerator(expectedResult, 4, 1));
+  do {
+    cellToTest = habitat[row][columnTested];
+    if (cellToTest === 0) {
+      aliveNeightBour += 1;
+    }
+
+    testCounter += 1;
+    columnTested += 1;
+  } while (testCounter !== 3);
+
+  return aliveNeightBour;
+};

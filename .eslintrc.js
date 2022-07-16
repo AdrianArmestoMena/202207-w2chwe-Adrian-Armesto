@@ -9,7 +9,5 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {
-    "no-plusplus": "off",
-  },
+  rules: {},
 };
