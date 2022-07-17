@@ -1,0 +1,21 @@
+.button-section {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__button {
+    color: black;
+    background-color: rgb(216, 214, 214);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+  }
+  &__button:hover {
+    background-color: rgb(75, 74, 74);
+    color: aqua;
+  }
+  &__information {
+    font-family: "Major Mono Display", monospace;
+  }
+}
