@@ -4,17 +4,21 @@ import { neightbourChecker } from "./GameOfLIfe/NeigthboursrChecker.js";
 import stateChanger from "./GameOfLIfe/StateChanger.js";
 
 const gridWithOutLive = HabitatArrayGenerator(20, 20);
-const gridWithLIve = GenerateLivedCells(gridWithOutLive);
+const gridWithLife = GenerateLivedCells(gridWithOutLive);
 
 const cellChanger = (grid) => {
-  const newGrid = [];
-
+  let newGrid = [];
   grid.forEach((row) => {
     let rowIndex = grid.indexOf(row);
     let rowToPush = newRowCreator(row, rowIndex, grid);
     newGrid.push(rowToPush);
   });
-  return newGrid;
+  console.table(newGrid);
+  let TimerToExit = 0;
+  const Interval = setInterval(cellChanger(newGrid), (TimerToExit += 1), 10000);
+  if (TimerToExit == 4) {
+    clearInterval(Interval);
+  }
 };
 
 const newRowCreator = (row, rowIndex, grid) => {
@@ -31,5 +35,5 @@ const newRowCreator = (row, rowIndex, grid) => {
   return newRow;
 };
 
-console.table(gridWithLIve);
-console.table(cellChanger(gridWithLIve));
+console.table(gridWithLife);
+console.table(cellChanger(gridWithLife));
