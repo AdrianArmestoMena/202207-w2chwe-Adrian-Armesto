@@ -2,7 +2,6 @@ main {
   display: flex;
   justify-content: center;
   padding: 10px;
-  height: 300px;
   background-color: rgb(216, 214, 214);
 }
 
@@ -23,12 +22,12 @@ main {
   flex: 1;
 }
 
-#grid-row__cell--alive {
+.grid-row__cell--alive {
   background-color: black;
   border: 0.3px solid black;
   flex: 1;
 }
-#grid-row__cell--death {
+.grid-row__cell--death {
   background-color: white;
   border: 0.5px solid black;
   flex: 1;
