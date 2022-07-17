@@ -1,9 +1,11 @@
 @use "./elementsStyles/header";
 @use "./elementsStyles/gird";
+@use "./elementsStyles/footer";
 
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Major Mono Display", monospace;
 }
 html {
   margin: 0;
