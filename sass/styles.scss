@@ -1,5 +1,11 @@
+@use "./elementsStyles/header";
+
 * {
   box-sizing: border-box;
+  margin: 0;
+}
+html {
+  margin: 0;
 }
 .title {
   color: saddlebrown;
