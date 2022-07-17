@@ -5,10 +5,21 @@
   color: saddlebrown;
 }
 
-.grid {
-  display: flex;
+#grid {
   width: 90vw;
   height: 80vh;
-  flex-wrap: wrap;
   border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#grid-row {
+  border: 1px solid black;
+  flex: 1;
+  display: flex;
+}
+
+.grid-row__cell {
+  border: 0.5px solid black;
+  flex: 1;
 }
