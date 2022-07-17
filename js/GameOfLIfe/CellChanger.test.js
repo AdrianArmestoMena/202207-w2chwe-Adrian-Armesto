@@ -1,4 +1,4 @@
-import { cellChanger, newRowCreator } from "./CellChanger.js";
+import { cellChanger } from "./CellChanger";
 
 describe("Given the function cellChanger", () => {
   describe("When it's called and it recieves a grid with alive cells, and death cells", () => {

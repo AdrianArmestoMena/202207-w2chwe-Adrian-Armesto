@@ -2,15 +2,16 @@ import { cellChanger } from "./GameOfLIfe/CellChanger.js";
 import HabitatArrayGenerator from "./GameOfLIfe/HabitatArrayGenerator.js";
 import GenerateLivedCells from "./GameOfLIfe/GenerateLivedCells.js";
 
-const gridWithOutLife = HabitatArrayGenerator(20, 20);
-const gridWithLife = GenerateLivedCells(gridWithOutLife);
-
 const createdHtmlGrid = () => {
+  const main = document.getElementById("main");
+  const containerGrid = document.createElement("div");
+  containerGrid.setAttribute("id", "grid");
+  main.appendChild(containerGrid);
   gridWithLife.forEach((row) => {
-    const main = document.getElementById("grid");
+    const gridContainer = document.getElementById("grid");
     const newRow = document.createElement("div");
     newRow.setAttribute("id", "grid-row");
-    main.appendChild(newRow);
+    gridContainer.appendChild(newRow);
 
     row.forEach((cell) => {
       const newcell = document.createElement("div");
@@ -25,5 +26,15 @@ const createdHtmlGrid = () => {
     });
   });
 };
+
+const gridWithOutLife = HabitatArrayGenerator(60, 60);
+let gridWithLife = GenerateLivedCells(gridWithOutLife);
 createdHtmlGrid(gridWithLife);
-setInterval(cellChanger, 1000);
+
+setInterval(() => {
+  const element = document.getElementById("grid");
+  element.remove();
+
+  gridWithLife = cellChanger(gridWithLife);
+  createdHtmlGrid(gridWithLife);
+}, 1000);
