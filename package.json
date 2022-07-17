@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
-    "sass": "npx sass sass/styles.scss public/css/styles.css --watch"
+    "sass": "npx sass sass/styles.scss public/css/styles.css --watch",
+    "net-sass": "npx sass sass/styles.scss public/css/styles.css"
   },
   "author": "",
   "license": "ISC",
