@@ -1,3 +1,22 @@
+const neighboursRowsChecker = (row, column, habitat) => {
+  let columnTested = column;
+  let cellToTest = habitat[row][columnTested];
+  let aliveNeightBour = 0;
+  let testCounter = 0;
+
+  do {
+    cellToTest = habitat[row][columnTested];
+    if (cellToTest === 0) {
+      aliveNeightBour += 1;
+    }
+
+    testCounter += 1;
+    columnTested += 1;
+  } while (testCounter !== 3);
+
+  return aliveNeightBour;
+};
+
 const neightbourChecker = (row, column, habitat) => {
   let initialPositionRow = row - 1;
   const initialPositionColumn = column - 1;
@@ -30,25 +49,6 @@ const neightbourChecker = (row, column, habitat) => {
   }
 
   return livedNeightbours;
-};
-
-const neighboursRowsChecker = (row, column, habitat) => {
-  let columnTested = column;
-  let cellToTest = habitat[row][columnTested];
-  let aliveNeightBour = 0;
-  let testCounter = 0;
-
-  do {
-    cellToTest = habitat[row][columnTested];
-    if (cellToTest === 0) {
-      aliveNeightBour += 1;
-    }
-
-    testCounter += 1;
-    columnTested += 1;
-  } while (testCounter !== 3);
-
-  return aliveNeightBour;
 };
 
 export { neighboursRowsChecker, neightbourChecker };

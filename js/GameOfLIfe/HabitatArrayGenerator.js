@@ -2,7 +2,7 @@ const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
   const cellsHabitats = [];
   let rowsPushCounter = 0;
   let columsPushCounter = 0;
-  let ErrorMessage = "Parameters must be a number betwen o and 100";
+  const ErrorMessage = "Parameters must be a number betwen o and 100";
 
   if (
     !Number.isInteger(cellsHabitatsColums) ||
@@ -14,13 +14,13 @@ const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
   }
   do {
     cellsHabitats.push([]);
-    rowsPushCounter++;
+    rowsPushCounter = +1;
   } while (cellsHabitatsRows !== rowsPushCounter);
 
   cellsHabitats.forEach((row) => {
     do {
       row.push(1);
-      columsPushCounter++;
+      columsPushCounter += 1;
     } while (cellsHabitatsColums !== columsPushCounter);
     columsPushCounter = 0;
   });
