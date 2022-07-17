@@ -14,13 +14,13 @@ const HabitatArrayGenerator = (cellsHabitatsRows, cellsHabitatsColums) => {
   }
   do {
     cellsHabitats.push([]);
-    rowsPushCounter = +1;
+    rowsPushCounter++;
   } while (cellsHabitatsRows !== rowsPushCounter);
 
   cellsHabitats.forEach((row) => {
     do {
       row.push(1);
-      columsPushCounter += 1;
+      columsPushCounter++;
     } while (cellsHabitatsColums !== columsPushCounter);
     columsPushCounter = 0;
   });
