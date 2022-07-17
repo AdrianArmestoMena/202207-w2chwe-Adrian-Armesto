@@ -35,8 +35,8 @@ const createdHtmlGrid = () => {
 createdHtmlGrid(gridWithLife);
 
 setInterval(() => {
-  const element = document.getElementById("grid");
-  element.remove();
+  const grid = document.getElementById("grid");
+  grid.remove();
 
   gridWithLife = cellChanger(gridWithLife);
   createdHtmlGrid(gridWithLife);
