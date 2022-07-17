@@ -5,7 +5,8 @@ import GenerateLivedCells from "./GameOfLIfe/GenerateLivedCells.js";
 
 const gridWithOutLife = HabitatArrayGenerator(60, 60);
 let gridWithLife = GenerateLivedCells(gridWithOutLife);
-const ButtonToPlay = document.querySelector(".button-section__button");
+const buttonToPlay = document.querySelector(".button-section__button");
+const secretButton = document.querySelector(".button-section__secret");
 
 const createdHtmlGrid = () => {
   const main = document.getElementById("main");
@@ -36,14 +37,18 @@ const createdHtmlGrid = () => {
 
 const mainFunction = () => {
   createdHtmlGrid();
-  ButtonToPlay.removeEventListener("click", mainFunction);
-  setInterval(() => {
+  buttonToPlay.removeEventListener("click", mainFunction);
+
+  const interval = setInterval(() => {
     const grid = document.getElementById("grid");
     grid.remove();
-
     gridWithLife = cellChanger(gridWithLife);
     createdHtmlGrid(gridWithLife);
-  }, 1000);
+  }, 500);
+
+  secretButton.addEventListener("click", () => {
+    clearInterval(interval);
+  });
 };
 
-ButtonToPlay.addEventListener("click", mainFunction);
+buttonToPlay.addEventListener("click", mainFunction);
